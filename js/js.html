@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Lab</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, serif;
+        }
+
+        h1 {
+            color: #0B3954;
+        }
+
+        .green {
+            color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1 id="main-header">Moja pierwsza aplikacja</h1>
+    <p>To będzie gra. A oto co muszę zrobić:</p>
+    <ol>
+        <li class="boring">Nauczyć się HTML</li>
+        <li class="boring">Nauczyć się CSS</li>
+        <li>Nauczyć się JS</li>
+        <li id="super-important">Zaimplementować</li>
+    </ol>
+</div>
+
+
+<button type="button" onClick="removeBoringStuff()">Usuń nudne rzeczy</button>
+<input type="text" id="myTextField">
+<input type="checkbox" id="myCheckbox">
+<button type="button" onclick="readValues()">Odczytaj wartości</button>
+
+<script>
+    const header = document.getElementById('main-header');
+    //alert(header.innerText);
+    header.innerText = "Inny header";
+
+    let div = document.createElement('div');
+    div.classList.add('green');
+    div.innerText = 'Zielony tekst (jeśli dodasz CSS)';
+    document.getElementById('app').append(div); // Dodanie na koniec diva z zielonym tekstem
+
+    let listItem = document.createElement('li');
+    listItem.innerText = 'Zagrać';
+
+    function removeBoringStuff() {
+        document.querySelectorAll("#app .boring").forEach((e) => e.remove());
+    }
+
+
+    function readValues() {
+        let box = document.getElementById("myCheckbox");
+        if (box.checked == true) {
+            // Poprawione ID: myTextField (nie myTextFiled)
+            let inboxText = document.getElementById("myTextField").value;
+            alert(inboxText);
+        }
+    }
+</script>
+</body>
+</html>
